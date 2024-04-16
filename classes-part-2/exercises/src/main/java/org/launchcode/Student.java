@@ -30,13 +30,50 @@ public class Student {
 
 
     //TODO: Uncomment and complete the getGradeLevel method here:
-//    public String getGradeLevel() {
-//        // Determine the grade level of the student based on numberOfCredits
-//    }
+    public String getGradeLevel(int numberOfCredits) {
+        if(numberOfCredits <= 29){
+            return "Freshman";
+//            System.out.println("Freshman");
+        } else if (numberOfCredits >= 30 && numberOfCredits <= 59){
+            return "Sophmore";
+//            System.out.println("Sophmore");
+        } else if (numberOfCredits >= 60 && numberOfCredits <= 89){
+            return "Junior";
+//            System.out.println("Junior");
+        } else return "Senior";
+        // Determine the grade level of the student based on numberOfCredits
+    }
 
     // TODO: Complete the addGrade method.
     public void addGrade(int courseCredits, double grade) {
+        String letterGrade;
+        double numericalGrade;
+
+        if (grade <= 1.0){
+            letterGrade = "D";
+            numericalGrade = 1.0;
+        } else if (grade <= 2.0){
+            letterGrade = "C";
+            numericalGrade = 2.0;
+        } else if (grade <= 3.0){
+            letterGrade = "B";
+            numericalGrade = 3.0;
+        } else {
+            letterGrade = "A";
+            numericalGrade = 4.0;
+        }
         // Update the appropriate fields: numberOfCredits, gpa
+       double qualityScore = numericalGrade * courseCredits;
+
+//        double totalQualityScore = this.gpa * this.numberOfCredits;
+
+//            totalQualityScore += courseCredits * grade;
+        totalQualityScore = qualityScore;
+        totalCredits += courseCredits;
+
+//            this.numberOfCredits += courseCredits;
+                gpa = totalQualityScore / totalCredits;
+
     }
 
     // TODO: Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
